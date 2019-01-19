@@ -96,7 +96,7 @@ public class DriveTrain extends Subsystem {
     }
 
     public void curvatureDrive(double xSpeed, double zRotation) {
-        differentialDrive1.curvatureDrive(xSpeed, zRotation, false);
+        differentialDrive1.curvatureDrive(xSpeed, zRotation, true);
     }
 
     public double getAngle(){
