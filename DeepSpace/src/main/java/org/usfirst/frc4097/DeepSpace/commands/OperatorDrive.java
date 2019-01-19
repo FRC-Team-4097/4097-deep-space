@@ -53,20 +53,13 @@ public class OperatorDrive extends Command {
 
         moveSpeed = moveSpeed*.5;
         rotateSpeed = rotateSpeed * -.5;
-        rotateDime = rotateDime * 0.5;
+        rotateDime = rotateDime * -0.5;
         if (Robot.oi.joystick1.getRawAxis(2)<1 && Robot.oi.joystick1.getRawAxis(2)>-1){
             Robot.driveTrain.curvatureDrive(moveSpeed, rotateSpeed);
         }
         else{
         Robot.driveTrain.arcadeDrive(moveSpeed, rotateDime);
         }
-        //Robot.driveTrain.arcadeDrive(moveSpeed, rotateSpeed);
-        // if (rotateSpeed == 0) {
-        //     Robot.driveTrain.arcadeDriveStraight(moveSpeed);  
-        // }
-        // else {
-        //     Robot.driveTrain.arcadeDrive(moveSpeed,rotateSpeed);
-        // }
         
     }
 
