@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4097.DeepSpace.Robot;
 import org.usfirst.frc4097.DeepSpace.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -50,17 +51,25 @@ public class OperatorDrive extends Command {
         double moveSpeed = Robot.oi.joystick1.getRawAxis(1);
         double rotateSpeed = Robot.oi.joystick1.getRawAxis(0);
         double rotateDime = Robot.oi.joystick1.getRawAxis(2);
+        double multiplier = Robot.oi.joystick1.getRawAxis(3);
 
-        moveSpeed = moveSpeed*.5;
-        rotateSpeed = rotateSpeed * -.5;
-        rotateDime = rotateDime * -0.5;
-        if (Robot.oi.joystick1.getRawAxis(2)<1 && Robot.oi.joystick1.getRawAxis(2)>-1){
+        multiplier= -0.5*multiplier;
+        moveSpeed = moveSpeed*.5 + multiplier;
+        rotateSpeed = rotateSpeed * -.5 + multiplier;
+        rotateDime = rotateDime * -0.5 + multiplier;
+        if (Robot.oi.joystick1.getRawButtonPressed(1)){
+            Robot.driveTrain.driveStraight(moveSpeed);
+        }
+        else if (Robot.oi.joystick1.getRawAxis(2)<1 && Robot.oi.joystick1.getRawAxis(2)>-1){
             Robot.driveTrain.curvatureDrive(moveSpeed, rotateSpeed);
         }
         else{
         Robot.driveTrain.arcadeDrive(moveSpeed, rotateDime);
         }
-        
+        SmartDashboard.putNumber("moveSpeed", moveSpeed);
+        SmartDashboard.putNumber("rotateSpeed", rotateSpeed);
+        SmartDashboard.putNumber("rotateDime", rotateDime);
+        SmartDashboard.putNumber("multiplier", multiplier);
     }
 
     // Make this return true when this Command no longer needs to run execute()
