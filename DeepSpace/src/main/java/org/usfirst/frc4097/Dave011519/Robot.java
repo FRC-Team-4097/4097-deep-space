@@ -107,7 +107,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-        SmartDashboard.putNumber("gyro", Robot.driveTrain.analogGyro1.getAngle());
+        SmartDashboard.putNumber("gyro", Robot.driveTrain.getAngle());
         Scheduler.getInstance().run();
     }
 }
