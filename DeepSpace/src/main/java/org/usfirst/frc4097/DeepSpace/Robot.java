@@ -9,7 +9,7 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc4097.Dave011519;
+package org.usfirst.frc4097.DeepSpace;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -17,8 +17,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc4097.Dave011519.commands.*;
-import org.usfirst.frc4097.Dave011519.subsystems.*;
+import org.usfirst.frc4097.DeepSpace.commands.*;
+import org.usfirst.frc4097.DeepSpace.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the

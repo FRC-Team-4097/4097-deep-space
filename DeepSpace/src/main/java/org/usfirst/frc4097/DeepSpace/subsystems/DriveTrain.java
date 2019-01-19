@@ -9,10 +9,10 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc4097.Dave011519.subsystems;
+package org.usfirst.frc4097.DeepSpace.subsystems;
 
 
-import org.usfirst.frc4097.Dave011519.commands.*;
+import org.usfirst.frc4097.DeepSpace.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.PIDOutput;
