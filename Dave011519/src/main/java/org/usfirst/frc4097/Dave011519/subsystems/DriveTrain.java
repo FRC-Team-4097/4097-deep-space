@@ -96,8 +96,13 @@ public class DriveTrain extends Subsystem {
     }
 
     public void arcadeDriveStraight(double moveSpeed){
+        //Don't need this.  May want to replace with a driveStraight(speed, angle).
         double currentAngle = analogGyro1.getAngle();
         arcadeDrive(moveSpeed, -currentAngle*Kp);
+    }
+    
+    public void driveStraightDistance(double speed, double distance, double angle) {
+        //Put a while loop in here.  Grab initial heading, read gyro, and adjust until distance (from encoders) is hit.
     }
 
     public void curvatureDrive(double xSpeed, double zRotation) {
