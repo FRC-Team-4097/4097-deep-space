@@ -12,6 +12,8 @@
 package org.usfirst.frc4097.Dave011519.commands;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc4097.Dave011519.Robot;
 import org.usfirst.frc4097.Dave011519.subsystems.DriveTrain;
 
@@ -60,14 +62,9 @@ public class OperatorDrive extends Command {
         else{
         Robot.driveTrain.arcadeDrive(moveSpeed, rotateDime);
         }
-        //Robot.driveTrain.arcadeDrive(moveSpeed, rotateSpeed);
-        // if (rotateSpeed == 0) {
-        //     Robot.driveTrain.arcadeDriveStraight(moveSpeed);  
-        // }
-        // else {
-        //     Robot.driveTrain.arcadeDrive(moveSpeed,rotateSpeed);
-        // }
-        
+       
+        SmartDashboard.putNumber("Gyro Reading",Robot.driveTrain.getAngle());
+        System.out.println(Robot.driveTrain.getAngle());
     }
 
     // Make this return true when this Command no longer needs to run execute()
