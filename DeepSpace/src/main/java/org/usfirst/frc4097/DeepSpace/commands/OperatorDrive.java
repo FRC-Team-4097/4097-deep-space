@@ -57,6 +57,7 @@ public class OperatorDrive extends Command {
         moveSpeed = moveSpeed*.5 + multiplier;
         rotateSpeed = rotateSpeed * -.5 + multiplier;
         rotateDime = rotateDime * -0.5 + multiplier;
+        //This is almost definitely where the error that caused it to move in circles came from
         if (Robot.oi.joystick1.getRawButtonPressed(1)){
             Robot.driveTrain.driveStraight(moveSpeed);
         }
