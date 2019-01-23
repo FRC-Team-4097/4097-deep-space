@@ -91,9 +91,10 @@ public class DriveTrain extends Subsystem {
     }
 
     public void driveStraight(double moveSpeed){
-        //double currentAngle = this.getAngle();
-        //arcadeDrive(moveSpeed, -currentAngle*Kp);
-        differentialDrive1.tankDrive(moveSpeed, moveSpeed, false);
+        double currentAngle = this.getAngle();
+        arcadeDrive(moveSpeed, -currentAngle*Kp);
+        //the above, when called, caused it to make a snap sound and turn slightly
+        //differentialDrive1.tankDrive(moveSpeed, moveSpeed, false);
     }
 
     public void curvatureDrive(double xSpeed, double zRotation) {

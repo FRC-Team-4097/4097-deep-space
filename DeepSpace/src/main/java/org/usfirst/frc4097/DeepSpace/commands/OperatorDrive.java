@@ -53,15 +53,15 @@ public class OperatorDrive extends Command {
         double rotateDime = Robot.oi.joystick1.getRawAxis(2);
         double multiplier = Robot.oi.joystick1.getRawAxis(3);
 
-        multiplier= -0.5*multiplier;
-        moveSpeed = moveSpeed*.5 + multiplier;
-        rotateSpeed = rotateSpeed * -.5 + multiplier;
-        rotateDime = rotateDime * -0.5 + multiplier;
-        //This is almost definitely where the error that caused it to move in circles came from
-        if (Robot.oi.joystick1.getRawButtonPressed(1)){
+        multiplier= -0.25*multiplier;
+        moveSpeed = moveSpeed*(.5 + multiplier);
+        rotateSpeed = rotateSpeed * (-.5 - multiplier);
+        rotateDime = rotateDime * (-0.75 - multiplier);
+        while(Robot.oi.joystick1.getRawButtonPressed(1)){
             Robot.driveTrain.driveStraight(moveSpeed);
+            //never runs, using an if conditional causes it to jerk
         }
-        else if (Robot.oi.joystick1.getRawAxis(2)<1 && Robot.oi.joystick1.getRawAxis(2)>-1){
+        if (Robot.oi.joystick1.getRawAxis(2)<1 && Robot.oi.joystick1.getRawAxis(2)>-1){
             Robot.driveTrain.curvatureDrive(moveSpeed, rotateSpeed);
         }
         else{
