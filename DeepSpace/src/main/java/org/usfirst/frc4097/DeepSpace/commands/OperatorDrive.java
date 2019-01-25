@@ -57,7 +57,8 @@ public class OperatorDrive extends Command {
         moveSpeed = moveSpeed*(.5 + multiplier);
         rotateSpeed = rotateSpeed * (-.5 - multiplier);
         rotateDime = rotateDime * (-0.75 - multiplier);
-        while(Robot.oi.joystick1.getRawButtonPressed(1)){
+        while(Robot.oi.joystick1.getRawButton(1)){
+            moveSpeed = Robot.oi.joystick1.getRawAxis(1)*(.75 + multiplier);
             Robot.driveTrain.driveStraight(moveSpeed);
             //never runs, using an if conditional causes it to jerk
         }

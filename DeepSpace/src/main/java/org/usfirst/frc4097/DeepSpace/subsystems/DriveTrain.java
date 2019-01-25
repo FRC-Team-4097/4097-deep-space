@@ -14,6 +14,7 @@ package org.usfirst.frc4097.DeepSpace.subsystems;
 
 import org.usfirst.frc4097.DeepSpace.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
@@ -91,10 +92,12 @@ public class DriveTrain extends Subsystem {
     }
 
     public void driveStraight(double moveSpeed){
-        double currentAngle = this.getAngle();
-        arcadeDrive(moveSpeed, -currentAngle*Kp);
-        //the above, when called, caused it to make a snap sound and turn slightly
-        //differentialDrive1.tankDrive(moveSpeed, moveSpeed, false);
+        //used double movespeed as parameter
+        //double currentAngle = this.getAngle();
+        //arcadeDrive(moveSpeed, -currentAngle*Kp);
+        //the above, when called with a conditional, caused it to make a snap sound and turn slightly
+        differentialDrive1.arcadeDrive(moveSpeed, 0);
+        SmartDashboard.putNumber("movespeed2:electric bugaloo", moveSpeed);
     }
 
     public void curvatureDrive(double xSpeed, double zRotation) {
