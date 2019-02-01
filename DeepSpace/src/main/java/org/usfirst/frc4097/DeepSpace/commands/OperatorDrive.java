@@ -56,13 +56,16 @@ public class OperatorDrive extends Command {
         multiplier= -0.25*multiplier;
         moveSpeed = moveSpeed*(.5 + multiplier);
         rotateSpeed = rotateSpeed * (-.5 - multiplier);
-        rotateDime = rotateDime * (-0.75 - multiplier);
-        while(Robot.oi.joystick1.getRawButton(1)){
+        rotateDime = rotateDime * (-0.65 - multiplier);
+        if(Robot.oi.joystick1.getRawButton(1)){
             moveSpeed = Robot.oi.joystick1.getRawAxis(1)*(.75 + multiplier);
             Robot.driveTrain.driveStraight(moveSpeed);
             //never runs, using an if conditional causes it to jerk
         }
-        if (Robot.oi.joystick1.getRawAxis(2)<1 && Robot.oi.joystick1.getRawAxis(2)>-1){
+        else if (Robot.oi.joystick1.getRawButton(2)){
+            Robot.driveTrain.gyroreset();
+        }
+        else if (Robot.oi.joystick1.getRawAxis(2)<1 && Robot.oi.joystick1.getRawAxis(2)>-1){
             Robot.driveTrain.curvatureDrive(moveSpeed, rotateSpeed);
         }
         else{
