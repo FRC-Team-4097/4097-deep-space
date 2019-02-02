@@ -43,6 +43,17 @@ public class OperatorDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        double sliderValue = Robot.oi.drivestick.getRawAxis(3);
+        //below speed multipliers may need to be changed
+        double xValue = Robot.oi.drivestick.getRawAxis(0)*(0.75+0.25*sliderValue);
+        double yValue = Robot.oi.drivestick.getRawAxis(1)*(0.75+0.25*sliderValue);
+        double zValue = Robot.oi.drivestick.getRawAxis(2)*(0.75+0.25*sliderValue);
+        if ( Robot.oi.drivestick.getRawAxis(2) == -1 ||  Robot.oi.drivestick.getRawAxis(2) == 1){
+            Robot.driveTrain.arcadeDrive(yValue, zValue);
+        }
+        else{
+            Robot.driveTrain.curvatureDrive(yValue, xValue);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -54,6 +65,7 @@ public class OperatorDrive extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.driveTrain.stopMotor();
     }
 
     // Called when another command which requires one or more of the same

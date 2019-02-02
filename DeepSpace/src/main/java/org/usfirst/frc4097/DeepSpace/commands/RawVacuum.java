@@ -11,6 +11,7 @@
 
 package org.usfirst.frc4097.DeepSpace.commands;
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc4097.DeepSpace.Robot;
 
 /**
@@ -43,6 +44,24 @@ public class RawVacuum extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        if (Robot.oi.xbox.getRawButton(5)){
+            Robot.spaceVaccuum.turnIt();
+        }
+        else if (Robot.oi.xbox.getRawButton(6)){
+            //ring=true
+            if (Robot.spaceVaccuum.checkSuckStatus() && Robot.spaceVaccuum.checkFanStatus()){
+                Robot.spaceVaccuum.suckBall(1);
+            }
+            else if (Robot.spaceVaccuum.checkSuckStatus()==false && Robot.spaceVaccuum.checkFanStatus()){
+                Robot.spaceVaccuum.suckRing(1);
+            }
+            else if (Robot.spaceVaccuum.checkSuckStatus() && Robot.spaceVaccuum.checkFanStatus()==false){
+                Robot.spaceVaccuum.suckBall(0);
+            }
+            else{
+                Robot.spaceVaccuum.suckRing(0);
+            }
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -54,6 +73,7 @@ public class RawVacuum extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.spaceVaccuum.turnitOff();
     }
 
     // Called when another command which requires one or more of the same

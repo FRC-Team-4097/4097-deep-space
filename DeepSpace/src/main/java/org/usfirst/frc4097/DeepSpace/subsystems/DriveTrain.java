@@ -79,7 +79,9 @@ public class DriveTrain extends Subsystem {
     public void arcadeDrive(double speed, double rotatedime){
         differentialDrive.arcadeDrive(speed, rotatedime);
     }
-
+    public void stopMotor(){
+        differentialDrive.stopMotor();
+    }
     @Override
     public void periodic() {
         // Put code here to be run every loop
