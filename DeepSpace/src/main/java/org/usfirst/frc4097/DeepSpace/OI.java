@@ -66,8 +66,8 @@ public class OI {
 
 
         // SmartDashboard Buttons
-        SmartDashboard.putData("Sandstorm", new Sandstorm());
         SmartDashboard.putData("OperatorDrive", new OperatorDrive());
+        SmartDashboard.putData("AutonomousCommand", new AutonomousCommand());
         SmartDashboard.putData("GrabbyGrab", new GrabbyGrab());
         SmartDashboard.putData("RawVacuum", new RawVacuum());
 
