@@ -73,6 +73,12 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
     }
+    public void curvatureDrive(double speed, double rotate){
+        differentialDrive.curvatureDrive(speed, rotate, false);
+    }
+    public void arcadeDrive(double speed, double rotatedime){
+        differentialDrive.arcadeDrive(speed, rotatedime);
+    }
 
     @Override
     public void periodic() {

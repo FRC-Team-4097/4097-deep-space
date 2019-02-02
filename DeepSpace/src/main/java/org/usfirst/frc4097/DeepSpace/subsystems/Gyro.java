@@ -45,6 +45,9 @@ public class Gyro extends Subsystem {
     public void getAngle(){
         gyro.getAngle();
     }
+    public void getYaw(){
+        gyro.getYaw();
+    }
 
     @Override
     public void initDefaultCommand() {

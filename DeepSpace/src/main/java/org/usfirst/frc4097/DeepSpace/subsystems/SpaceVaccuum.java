@@ -79,6 +79,18 @@ public class SpaceVaccuum extends Subsystem {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
     }
+    public void CheckvanStatus(){
+        //checks if the fan is on or off.
+    }
+    public void blowRing(){
+        //code pending, needs to suck in ball, blow out ring
+    }
+    public void suckRing(){
+        //does the opposite of blowRing
+    }
+    public void Turnit(){
+        //if the fan is on, turns it off. else, turns it on.
+    }
 
     @Override
     public void periodic() {
