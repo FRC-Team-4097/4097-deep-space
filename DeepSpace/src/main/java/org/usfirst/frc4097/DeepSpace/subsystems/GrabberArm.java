@@ -54,12 +54,12 @@ public class GrabberArm extends Subsystem {
     }
     public void elbowTurn(double ry){
         //turns the motor closest to the bot frame dependent on y1
-        ry=0.5*ry;
-        pivotMotorLower.setSpeed(ry); 
+        ry=0.1*ry;
+        pivotMotorLower.setSpeed(ry);
     }
     public void wristTurn(double ly){
         //does the same thing as elbowturn, but does it for the motor closest to the pivot arm
-        ly=0.5*ly;
+        ly=0.1*ly;
         pivotMotorLower.setSpeed(ly);
     }
     public void stopArms(){

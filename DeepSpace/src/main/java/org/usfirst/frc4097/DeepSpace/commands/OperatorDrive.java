@@ -45,9 +45,15 @@ public class OperatorDrive extends Command {
     protected void execute() {
         double sliderValue = Robot.oi.drivestick.getRawAxis(3);
         //below speed multipliers may need to be changed
-        double xValue = Robot.oi.drivestick.getRawAxis(0)*(0.75+0.25*sliderValue);
-        double yValue = Robot.oi.drivestick.getRawAxis(1)*(0.75+0.25*sliderValue);
-        double zValue = Robot.oi.drivestick.getRawAxis(2)*(0.75+0.25*sliderValue);
+        //SLIDERMIN is the speed of the robot when the slider is all the way back
+        //SLIDERMAX is the speed of the robot when the slider is all the way forwards
+        double SLIDERMIN = 0.1;
+        double SLIDERMAX = 0.5;
+        double speedMultiplier = (SLIDERMAX-SLIDERMIN)/2;
+        double speedConstant = SLIDERMAX-speedMultiplier;
+        double xValue = Robot.oi.drivestick.getRawAxis(0)*(speedConstant+speedMultiplier*sliderValue);
+        double yValue = Robot.oi.drivestick.getRawAxis(1)*(speedConstant+speedMultiplier*sliderValue);
+        double zValue = Robot.oi.drivestick.getRawAxis(2)*(speedConstant+speedMultiplier*sliderValue);
         if ( Robot.oi.drivestick.getRawAxis(2) == -1 ||  Robot.oi.drivestick.getRawAxis(2) == 1){
             Robot.driveTrain.arcadeDrive(yValue, zValue);
         }
