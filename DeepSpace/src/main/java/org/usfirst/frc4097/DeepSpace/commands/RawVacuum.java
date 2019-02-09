@@ -50,16 +50,16 @@ public class RawVacuum extends Command {
         else if (Robot.oi.xbox.getRawButton(6)){
             //ring=true
             if (Robot.spaceVaccuum.checkSuckStatus() && Robot.spaceVaccuum.checkFanStatus()){
-                Robot.spaceVaccuum.suckBall(1);
+                Robot.spaceVaccuum.suckBall();
             }
             else if (Robot.spaceVaccuum.checkSuckStatus()==false && Robot.spaceVaccuum.checkFanStatus()){
-                Robot.spaceVaccuum.suckRing(1);
+                Robot.spaceVaccuum.suckRing();
             }
             else if (Robot.spaceVaccuum.checkSuckStatus() && Robot.spaceVaccuum.checkFanStatus()==false){
-                Robot.spaceVaccuum.suckBall(0);
+                Robot.spaceVaccuum.suckBall();
             }
             else{
-                Robot.spaceVaccuum.suckRing(0);
+                Robot.spaceVaccuum.suckRing();
             }
         }
     }
