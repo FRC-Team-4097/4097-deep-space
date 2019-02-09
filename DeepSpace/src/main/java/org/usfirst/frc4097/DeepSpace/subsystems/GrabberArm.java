@@ -45,7 +45,7 @@ public class GrabberArm extends Subsystem {
         addChild("pivotMotorUpper",pivotMotorUpper);
         pivotMotorUpper.setInverted(false);
         
-        pivotMotorLower = new VictorSP(2);
+        pivotMotorLower = new VictorSP(9);
         addChild("pivotMotorLower",pivotMotorLower);
         pivotMotorLower.setInverted(false);
         
@@ -54,13 +54,13 @@ public class GrabberArm extends Subsystem {
     }
     public void elbowTurn(double ry){
         //turns the motor closest to the bot frame dependent on y1
-        ry=0.1*ry;
+        ry=-0.75*ry;
         pivotMotorLower.setSpeed(ry);
     }
     public void wristTurn(double ly){
         //does the same thing as elbowturn, but does it for the motor closest to the pivot arm
-        ly=0.1*ly;
-        pivotMotorLower.setSpeed(ly);
+        ly=0.15*ly;
+        pivotMotorUpper.setSpeed(ly);
     }
     public void stopArms(){
         pivotMotorLower.stopMotor();

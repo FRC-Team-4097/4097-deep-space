@@ -271,7 +271,7 @@ Children:
           default: '0'
           name: Output Channel (PWM)
           validators: *id007
-          value: '2'
+          value: '9'
         Inverted: !!robotbuilder.data.properties.BooleanProperty {default: false,
           name: Inverted, validators: null, value: false}
       Base: Speed Controller
@@ -451,7 +451,7 @@ Properties:
   Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\nhsro\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Owner\Documents\GitHub\4097-deep-space'}
   Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\nhsro\FRCProjects',
-    extension: null, folder: true, name: Export Directory, validators: null, value: 'C:\Users\Owner\Documents\GitHub\4097-deep-space'}
+    extension: null, folder: true, name: Export Directory, validators: null, value: 'C:\Users\nhsro\Documents\GitHub\4097-deep-space\4097-deep-space'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
 Base: Robot

@@ -43,7 +43,7 @@ public class OperatorDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        double sliderValue = Robot.oi.drivestick.getRawAxis(3);
+        double sliderValue = -1*Robot.oi.drivestick.getRawAxis(3);
         //below speed multipliers may need to be changed
         //SLIDERMIN is the speed of the robot when the slider is all the way back
         //SLIDERMAX is the speed of the robot when the slider is all the way forwards
@@ -52,7 +52,7 @@ public class OperatorDrive extends Command {
         double speedMultiplier = (SLIDERMAX-SLIDERMIN)/2;
         double speedConstant = SLIDERMAX-speedMultiplier;
         double xValue = Robot.oi.drivestick.getRawAxis(0)*(speedConstant+speedMultiplier*sliderValue);
-        double yValue = Robot.oi.drivestick.getRawAxis(1)*(speedConstant+speedMultiplier*sliderValue);
+        double yValue = -1*Robot.oi.drivestick.getRawAxis(1)*(speedConstant+speedMultiplier*sliderValue);
         double zValue = Robot.oi.drivestick.getRawAxis(2)*(speedConstant+speedMultiplier*sliderValue);
         if ( Robot.oi.drivestick.getRawAxis(2) == -1 ||  Robot.oi.drivestick.getRawAxis(2) == 1){
             Robot.driveTrain.arcadeDrive(yValue, zValue);
