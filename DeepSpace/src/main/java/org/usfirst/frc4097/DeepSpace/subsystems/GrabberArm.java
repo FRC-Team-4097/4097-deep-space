@@ -90,6 +90,10 @@ public class GrabberArm extends Subsystem {
         else{
             pivotMotorLower.setSpeed(-g);
         }
+        //https://wpilib.screenstepslive.com/s/3120/m/7912/l/79828-operating-the-robot-with-feedback-from-sensors-pid-control
+        //Use above link to help set up potAdjust for continouous pid
+        //https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599736-pidsubsystems-for-built-in-pid-control
+        //Note: the pot was set up with analog potentiometer rather than as pid controller
     }
     public void wristTurn(double ly){
         //does the same thing as elbowturn, but does it for the motor closest to the pivot arm
