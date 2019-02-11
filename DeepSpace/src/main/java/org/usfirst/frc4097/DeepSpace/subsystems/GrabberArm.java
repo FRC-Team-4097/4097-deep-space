@@ -66,18 +66,20 @@ public class GrabberArm extends Subsystem {
     
     }
     public void elbowTurn(double ry){
-        //turns the motor closest to the bot frame dependent on y1
+        //turns the motor closest to the bot frame dependent on ry
+        //CURRENTLY WORKS, BUT STALLS MOTOR
         ry=0.5*ry;
-        /*if (ry >= -g && ry <= g){
+        if (ry >= -g && ry <= g){
             ry = g;
         }
-        else if (ry < -g){
-            ry=ry+g;
-        }*/
+        //else if (ry < -g){
+            //ry=ry+g;
+        //}
         //constant meant to fight gravity
+        /*
         if (ry==0){
             potAdjust(getLowerPot());
-        }
+        }*/
         pivotMotorLower.setSpeed(ry);
         SmartDashboard.putNumber("ry", ry);
     }
