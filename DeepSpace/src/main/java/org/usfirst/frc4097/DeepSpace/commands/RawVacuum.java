@@ -44,10 +44,10 @@ public class RawVacuum extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        if (Robot.oi.xbox.getRawButton(5)){
+        if (Robot.oi.xbox.getRawButtonPressed(5)){
             Robot.spaceVaccuum.turnIt();
         }
-        else if (Robot.oi.xbox.getRawButton(6)){
+        else if (Robot.oi.xbox.getRawButtonPressed(6)){
             //ring=true
             if (Robot.spaceVaccuum.checkSuckStatus() && Robot.spaceVaccuum.checkFanStatus()){
                 Robot.spaceVaccuum.suckBall();
