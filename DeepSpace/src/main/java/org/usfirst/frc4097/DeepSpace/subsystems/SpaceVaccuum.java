@@ -96,18 +96,18 @@ public class SpaceVaccuum extends Subsystem {
         suckStatus=true;
         //start==open
         //end=closed
-        servo1.setAngle(end);;
-        servo2.setAngle(end);
-        servo3.setAngle(start);
-        servo4.setAngle(start);
+        servo1.setAngle(150);;
+        servo2.setAngle(140);
+        servo3.setAngle(5);
+        servo4.setAngle(45);
     }
     public void suckBall(){
         //does the opposite of suckRing
         suckStatus=false;
-        servo1.setAngle(start);
-        servo2.setAngle(start);
-        servo3.setAngle(end+30);
-        servo4.setAngle(end);
+        servo1.setAngle(15);
+        servo2.setAngle(15);
+        servo3.setAngle(180);
+        servo4.setAngle(150);
     }
     public void turnIt(){
         //if the fan is on, turns it off. else, turns it on.
