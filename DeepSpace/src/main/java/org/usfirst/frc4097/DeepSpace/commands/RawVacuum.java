@@ -44,6 +44,9 @@ public class RawVacuum extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        if (Robot.spaceVaccuum.checkFanStatus() && Robot.spaceVaccuum.shouldBlowHarder()){
+            Robot.spaceVaccuum.rampUp();
+        }
         if (Robot.oi.xbox.getRawButtonPressed(5)){
             Robot.spaceVaccuum.turnIt();
         }
