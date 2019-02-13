@@ -111,6 +111,7 @@ public class SpaceVaccuum extends Subsystem {
         servo3.setAngle(5);
         servo4.setAngle(45);
     }
+    
     public void suckBall(){
         //does the opposite of suckRing
         suckStatus=false;
