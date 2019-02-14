@@ -49,7 +49,7 @@ public class SpaceVaccuum extends Subsystem {
 
     //rampup params
     double rampUpTime = .5; //in secs
-    double rampUpMaxSpeed = .75; //out of 0-1
+    double rampUpMaxSpeed = .9; //out of 0-1
     double rampUpIncrementValue = (0.02/rampUpTime)*rampUpMaxSpeed;
 
     public SpaceVaccuum() {
@@ -106,20 +106,41 @@ public class SpaceVaccuum extends Subsystem {
         suckStatus=true;
         //start==open
         //end=closed
-        servo1.setAngle(150);;
-        servo2.setAngle(140);
-        servo3.setAngle(5);
-        servo4.setAngle(45);
+        servo1.setAngle(135);//Daniwuw aproved
+        servo2.setAngle(57);//Daniwuw aproved
+        servo3.setAngle(50);
+        servo4.setAngle(50);
     }
-    
+
     public void suckBall(){
         //does the opposite of suckRing
         suckStatus=false;
-        servo1.setAngle(15);
-        servo2.setAngle(15);
-        servo3.setAngle(180);
-        servo4.setAngle(150);
+        servo1.setAngle(47);//Daniwuw aproved
+        servo2.setAngle(145);//Daniwuw aproved
+        servo3.setAngle(135);
+        servo4.setAngle(135);
     }
+    /*
+    public void suckRing(){
+        //code pending, needs to suck in ring, blow out ball
+        suckStatus=true;
+        //start==open
+        //end=closed
+        servo1.setAngle(135);//Daniwuw aproved
+        servo2.setAngle(57);//Daniwuw aproved
+        servo3.setAngle(50);
+        servo4.setAngle(50);
+    }
+
+    public void suckBall(){
+        //does the opposite of suckRing
+        suckStatus=false;
+        servo1.setAngle(47);//Daniwuw aproved
+        servo2.setAngle(145);//Daniwuw aproved
+        servo3.setAngle(135);
+        servo4.setAngle(135);
+    }
+    */
     public void turnIt(){
         //if the fan is on, turns it off. else, turns it on.
         if (checkFanStatus()){
