@@ -53,7 +53,7 @@ public class OperatorDrive extends Command {
         double speedMultiplier = (SLIDERMAX-SLIDERMIN)/2;
         double speedConstant = SLIDERMAX-speedMultiplier;
         double ZMIN = 0.4;
-        double ZMAX = 0.5;
+        double ZMAX = 0.6;
         double zMultiplier = (ZMAX-ZMIN)/2;
         double zConstant = ZMAX-zMultiplier;
         double xValue = Robot.oi.drivestick.getRawAxis(0)*(speedConstant+speedMultiplier*sliderValue)*1.25;

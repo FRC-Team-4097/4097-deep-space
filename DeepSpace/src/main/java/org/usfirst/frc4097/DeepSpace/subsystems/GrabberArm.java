@@ -139,7 +139,12 @@ public class GrabberArm extends Subsystem {
             if (speed < 0.25){
                 speed = 0.25;
             }
-            elbowTurn(speed);
+            if ((lowerTarget-lowerAngle) >=5 || (lowerTarget-lowerAngle) <= -5){
+                elbowTurn(speed);
+            }
+            else {
+                autoControl = false;
+            }
         }
     }
     
