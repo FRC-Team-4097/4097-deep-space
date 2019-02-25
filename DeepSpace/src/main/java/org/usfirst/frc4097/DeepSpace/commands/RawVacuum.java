@@ -39,25 +39,30 @@ public class RawVacuum extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        Robot.spaceVaccuum.suckRing();
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        if (Robot.spaceVaccuum.checkFanStatus() && Robot.spaceVaccuum.shouldBlowHarder()){
+            Robot.spaceVaccuum.rampUp();
+        }
         if (Robot.oi.xbox.getRawButtonPressed(5)){
             Robot.spaceVaccuum.turnIt();
         }
         else if (Robot.oi.xbox.getRawButtonPressed(6)){
             //ring=true
-            if (Robot.spaceVaccuum.checkSuckStatus() && Robot.spaceVaccuum.checkFanStatus()){
+            if (Robot.spaceVaccuum.checkSuckStatus()/* && Robot.spaceVaccuum.checkFanStatus()*/){
                 Robot.spaceVaccuum.suckBall();
             }
-            else if (Robot.spaceVaccuum.checkSuckStatus()==false && Robot.spaceVaccuum.checkFanStatus()){
+            /*else if (Robot.spaceVaccuum.checkSuckStatus()==false && Robot.spaceVaccuum.checkFanStatus()){
                 Robot.spaceVaccuum.suckRing();
             }
             else if (Robot.spaceVaccuum.checkSuckStatus() && Robot.spaceVaccuum.checkFanStatus()==false){
                 Robot.spaceVaccuum.suckBall();
-            }
+            }*/
             else{
                 Robot.spaceVaccuum.suckRing();
             }

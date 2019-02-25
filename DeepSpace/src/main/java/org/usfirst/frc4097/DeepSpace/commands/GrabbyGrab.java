@@ -11,6 +11,8 @@
 
 package org.usfirst.frc4097.DeepSpace.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc4097.DeepSpace.Robot;
 
 /**
@@ -43,8 +45,30 @@ public class GrabbyGrab extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.grabberArm.elbowTurn(-1*Robot.oi.xbox.getRawAxis(5));
-        Robot.grabberArm.wristTurn(Robot.oi.xbox.getRawAxis(1));
+        if (Robot.oi.xbox.getRawButtonPressed(1)){
+            if (Robot.grabberArm.presetString != "Resting"){
+                Robot.grabberArm.lowerTarget = 110;
+                Robot.grabberArm.upperTarget = 0;
+                Robot.grabberArm.autoControl = true;
+                Robot.grabberArm.presetString = "Resting";
+            }
+            else{
+                Robot.grabberArm.autoControl = false;
+                Robot.grabberArm.presetString = "None";
+            }
+        }
+        if (Robot.oi.xbox.getRawAxis(1) >=  0.15 ||
+            Robot.oi.xbox.getRawAxis(1) <= -0.15 ||
+            Robot.oi.xbox.getRawAxis(5) >=  0.15 ||
+            Robot.oi.xbox.getRawAxis(5) <= -0.15){
+            Robot.grabberArm.autoControl = false;
+            Robot.grabberArm.presetString = "None";
+        }
+        Robot.grabberArm.goToTargetAngle();
+        if (Robot.grabberArm.autoControl == false){
+            Robot.grabberArm.elbowTurn(-1*Robot.oi.xbox.getRawAxis(5));
+            Robot.grabberArm.wristTurn(Robot.oi.xbox.getRawAxis(1));
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
