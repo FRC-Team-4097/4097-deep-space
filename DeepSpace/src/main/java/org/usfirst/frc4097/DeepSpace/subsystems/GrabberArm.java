@@ -49,6 +49,7 @@ public class GrabberArm extends Subsystem {
     double g = 0.1;
     public double lowerTarget = 0;
     public double upperTarget = 0;
+    //Based on what these targets are used for, they should probably be changed to parameters, rather than variables
     public boolean autoControl = false;
     public String presetString = "None";
     public GrabberArm() {
@@ -134,6 +135,7 @@ public class GrabberArm extends Subsystem {
         //Gay: -200
         double lowerAngle = lowerPot.get();
         double upperAngle = upperPot.get();
+        //remove UpperAngle, it's not used for anything
         if (autoControl){
             double speed = (lowerTarget-lowerAngle)/180;
             if (speed < 0.25){
