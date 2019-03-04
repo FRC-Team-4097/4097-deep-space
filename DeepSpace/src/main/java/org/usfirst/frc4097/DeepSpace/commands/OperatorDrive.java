@@ -59,7 +59,19 @@ public class OperatorDrive extends Command {
         double xValue = Robot.oi.drivestick.getRawAxis(0)*(speedConstant+speedMultiplier*sliderValue)*1.25;
         double yValue = -1*Robot.oi.drivestick.getRawAxis(1)*(speedConstant+speedMultiplier*sliderValue);
         double zValue = Robot.oi.drivestick.getRawAxis(2)*(zConstant+zMultiplier*sliderValue);
-        if ( Robot.oi.drivestick.getRawAxis(2) == -1 ||  Robot.oi.drivestick.getRawAxis(2) == 1){
+        if (Robot.oi.drivestick.getRawButton(2)){
+            Robot.driveTrain.cardinal(2);
+        }
+        else if (Robot.oi.drivestick.getRawButton(3)){
+            Robot.driveTrain.cardinal(3);
+        }
+        else if (Robot.oi.drivestick.getRawButton(4)){
+            Robot.driveTrain.cardinal(4);
+        }
+        else if (Robot.oi.drivestick.getRawButton(5)){
+            Robot.driveTrain.cardinal(5);
+        }
+        else if ( Robot.oi.drivestick.getRawAxis(2) == -1 ||  Robot.oi.drivestick.getRawAxis(2) == 1){
             Robot.driveTrain.arcadeDrive(yValue, zValue);
         }
         else{
