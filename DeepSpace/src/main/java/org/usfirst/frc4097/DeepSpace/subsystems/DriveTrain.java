@@ -12,6 +12,7 @@
 package org.usfirst.frc4097.DeepSpace.subsystems;
 
 
+import org.usfirst.frc4097.DeepSpace.Robot;
 import org.usfirst.frc4097.DeepSpace.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -115,6 +116,42 @@ public class DriveTrain extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    public void cardinal(double x){
+        if (x==2){
+            //North=0
+            if (Robot.gyro.getAngle()>0){
+                differentialDrive.tankDrive(0.5, -0.5);
+            }
+            else if (Robot.gyro.getAngle()<0){
+                differentialDrive.tankDrive(-0.5, 0.5);
+            }
+        }
+        else if (x==3){
+            if (Robot.gyro.getAngle()>90){
+                differentialDrive.tankDrive(0.5, -0.5);
+            }
+            else if (Robot.gyro.getAngle()<90){
+                differentialDrive.tankDrive(-0.5, 0.5);
+            }
+        }
+        else if (x==4){
+            if (Robot.gyro.getAngle()>180){
+                differentialDrive.tankDrive(0.5, -0.5);
+            }
+            else if (Robot.gyro.getAngle()<180){
+                differentialDrive.tankDrive(-0.5, 0.5);
+            }
+        }
+        else{
+            //West=270
+            if (Robot.gyro.getAngle()>270){
+                differentialDrive.tankDrive(0.5, -0.5);
+            }
+            else if (Robot.gyro.getAngle()<270){
+                differentialDrive.tankDrive(-0.5, 0.5);
+            }
+        }
+    }
 
 }
 

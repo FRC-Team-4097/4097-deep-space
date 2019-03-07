@@ -244,9 +244,9 @@ Children:
           validators: &id011 [AnalogInput]
           value: '0'
         Full Range: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Full Range,
-          validators: null, value: 270.0}
+          validators: null, value: -250.0}
         Offset: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Offset,
-          validators: null, value: 0.0}
+          validators: null, value: 200.0}
       Base: Analog Potentiometer
       Name: UpperPot
     - Children: []
@@ -258,9 +258,9 @@ Children:
           validators: *id011
           value: '1'
         Full Range: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Full Range,
-          validators: null, value: 270.0}
+          validators: null, value: -250.0}
         Offset: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Offset,
-          validators: null, value: 0.0}
+          validators: null, value: 200.0}
       Base: Analog Potentiometer
       Name: LowerPot
     Properties:
