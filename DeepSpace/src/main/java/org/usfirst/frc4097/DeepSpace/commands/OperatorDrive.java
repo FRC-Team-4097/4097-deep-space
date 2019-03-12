@@ -59,18 +59,21 @@ public class OperatorDrive extends Command {
         double xValue = Robot.oi.drivestick.getRawAxis(0)*(speedConstant+speedMultiplier*sliderValue)*1.25;
         double yValue = -1*Robot.oi.drivestick.getRawAxis(1)*(speedConstant+speedMultiplier*sliderValue);
         double zValue = Robot.oi.drivestick.getRawAxis(2)*(zConstant+zMultiplier*sliderValue);
-        if (Robot.oi.drivestick.getRawButton(2)){
-            Robot.driveTrain.cardinal(2);
+        //Cardinal direction stuff to keep
+        if (Robot.oi.drivestick.getPOV(0) != -1){
+            //Robot.driveTrain.goToTargetAngle(Robot.oi.drivestick.getPOV(0));
         }
-        else if (Robot.oi.drivestick.getRawButton(3)){
-            Robot.driveTrain.cardinal(3);
+
+        //Old cardinal direction stuff
+        /*else if (Robot.oi.drivestick.getRawButton(3)){
+            Robot.driveTrain.cardinal("E");
         }
         else if (Robot.oi.drivestick.getRawButton(4)){
-            Robot.driveTrain.cardinal(4);
+            Robot.driveTrain.cardinal("S");
         }
         else if (Robot.oi.drivestick.getRawButton(5)){
-            Robot.driveTrain.cardinal(5);
-        }
+            Robot.driveTrain.cardinal("W");
+        }*/
         else if ( Robot.oi.drivestick.getRawAxis(2) == -1 ||  Robot.oi.drivestick.getRawAxis(2) == 1){
             Robot.driveTrain.arcadeDrive(yValue, zValue);
         }

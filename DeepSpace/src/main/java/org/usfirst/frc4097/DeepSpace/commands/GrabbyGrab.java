@@ -57,6 +57,18 @@ public class GrabbyGrab extends Command {
                 Robot.grabberArm.presetString = "None";
             }
         }
+        else if (false && Robot.oi.xbox.getRawButtonPressed(3)){
+            if (Robot.grabberArm.presetString != "Hatch (wall)"){
+                Robot.grabberArm.lowerTarget = 7;
+                Robot.grabberArm.upperTarget = 79;
+                Robot.grabberArm.autoControl = true;
+                Robot.grabberArm.presetString = "Hatch (wall)";
+            }
+            else{
+                Robot.grabberArm.autoControl = false;
+                Robot.grabberArm.presetString = "None";
+            }
+        }
         if (Robot.oi.xbox.getRawAxis(1) >=  0.15 ||
             Robot.oi.xbox.getRawAxis(1) <= -0.15 ||
             Robot.oi.xbox.getRawAxis(5) >=  0.15 ||

@@ -46,15 +46,18 @@ public class Gyro extends Subsystem {
     }
     public double getAngle(){
         double z = gyro.getAngle();
+        if (z<0){
+            z=360-z;
+        }
         if (z>=360){
             z=z-360;
         }
-        else if (z<=-360){
+       /*else if (z <= -360){
             z=z+360;
-        }
-        else if (z==0){
+        }*/
+       /*else if (z == 0){
             gyro.reset();
-        }
+        }*/
         return z;
     }
     public double getYaw(){
