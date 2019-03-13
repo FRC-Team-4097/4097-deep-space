@@ -113,13 +113,8 @@ public class GrabberArm extends Subsystem {
             double speed = (lowerTarget-lowerAngle)/180;
             boolean elbowIsDone = false;
             boolean wristIsDone = false;
-            if (speed < 0.25 && speed > -0.25){
-                if (speed > 0){
-                    speed = 0.25;
-                }
-                else if (speed < 0){
-                    speed = -0.25;
-                }
+            if (speed < 0.25){
+                speed = 0.25;
             }
             if ((lowerTarget-lowerAngle) >= 5 || (lowerTarget-lowerAngle) <= -5){
                 elbowTurn(speed);
