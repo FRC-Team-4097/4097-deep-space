@@ -47,7 +47,7 @@ public class GrabbyGrab extends Command {
     protected void execute() {
         if (Robot.oi.xbox.getRawButtonPressed(1)){
             if (Robot.grabberArm.presetString != "Resting"){
-                Robot.grabberArm.lowerTarget = 110;
+                Robot.grabberArm.lowerTarget = 118;
                 Robot.grabberArm.upperTarget = 0;
                 Robot.grabberArm.autoControl = true;
                 Robot.grabberArm.presetString = "Resting";
@@ -57,10 +57,10 @@ public class GrabbyGrab extends Command {
                 Robot.grabberArm.presetString = "None";
             }
         }
-        else if (false && Robot.oi.xbox.getRawButtonPressed(3)){
+        else if (Robot.oi.xbox.getRawButtonPressed(3)){
             if (Robot.grabberArm.presetString != "Hatch (wall)"){
-                Robot.grabberArm.lowerTarget = 7;
-                Robot.grabberArm.upperTarget = 79;
+                Robot.grabberArm.lowerTarget = -1.3;
+                Robot.grabberArm.upperTarget = 20.5;
                 Robot.grabberArm.autoControl = true;
                 Robot.grabberArm.presetString = "Hatch (wall)";
             }
