@@ -100,6 +100,7 @@ public class Robot extends TimedRobot {
         //autonomousCommand = chooser.getSelected();
         // schedule the autonomous command (example)
         //if (autonomousCommand != null) autonomousCommand.start();
+        gyro.reset();
     }
 
     /**
@@ -107,6 +108,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousPeriodic() {
+        SmartDashboard.putNumber("Gyro", gyro.getTheAngle());
         Scheduler.getInstance().run();
         teleopPeriodic();
     }
@@ -125,6 +127,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
+        SmartDashboard.putNumber("Gyro", gyro.getTheAngle());
         Scheduler.getInstance().run();
     }
 }

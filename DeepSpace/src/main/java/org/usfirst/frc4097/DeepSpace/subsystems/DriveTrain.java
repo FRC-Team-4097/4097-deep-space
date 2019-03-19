@@ -133,7 +133,7 @@ public class DriveTrain extends Subsystem {
     }
     public void goToTargetAngle(double angel){
         //assumes that it increases clockwise
-        double difference = angel-Robot.gyro.getAngle();
+        double difference = angel-Robot.gyro.getTheAngle();
         if (Math.abs(difference)>=180){
             difference=difference+360;
         }
