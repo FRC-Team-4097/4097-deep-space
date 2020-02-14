@@ -116,8 +116,38 @@ public class DriveTrain extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    
-    
+    public void cardinal(String x){
+        if (x=="N"){
+            //North=0
+            goToTargetAngle(0);
+        }
+        else if (x=="E"){
+            goToTargetAngle(90);
+        }
+        else if (x=="S"){
+            goToTargetAngle(180);
+        }
+        else if (x=="W"){
+            goToTargetAngle(270);
+        }
+    }
+    public void goToTargetAngle(double angel){
+        //assumes that it increases clockwise
+        double difference = angel-Robot.gyro.getTheAngle();
+        if (Math.abs(difference)>=180){
+            difference=difference+360;
+        }
+        double speed = difference/270;
+        if (speed>0 && speed<0.3){
+            speed=0.3;
+        }
+        else if (speed<0 && speed>-0.3){
+            speed=-0.3;
+        }
+        if (Math.abs(difference)>=1){
+            arcadeDrive(0, speed);
+        }
+    }
 
 }
 
