@@ -76,6 +76,7 @@ public class OperatorDrive extends Command {
         }*/
         else if ( Robot.oi.drivestick.getRawAxis(2) == -1 ||  Robot.oi.drivestick.getRawAxis(2) == 1){
             Robot.driveTrain.arcadeDrive(yValue, zValue);
+            //hello
         }
         else{
             Robot.driveTrain.curvatureDrive(yValue, xValue);
